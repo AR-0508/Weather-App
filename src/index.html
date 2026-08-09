@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StormPoint</title>
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- Header / Search -->
+
+        <header class="header">
+
+            <div class="logo">
+                <span class="logo-primary">Storm</span>
+                <span class="logo-secondary">Point</span>
+            </div>
+
+            <form class="search-form">
+
+                <label for="location-input" class="visually-hidden">
+                    Search location
+                </label>
+
+                <input
+                    type="text"
+                    id="location-input"
+                    class="location-input"
+                    placeholder="Search location (e.g. Lahore, PK)..."
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" class="search-button" aria-label="Search">
+                    <span>⌕</span>
+                </button>
+
+            </form>
+
+        </header>
+
+
+        <!-- Weather Application -->
+
+        <section class="weather-container hidden">
+
+            <!-- Location heading -->
+
+            <div class="location-header">
+
+                <h1 class="location-name">
+                    <span class="location-pin">●</span>
+                    <span id="location-name">LAHORE</span>
+                </h1>
+
+                <div class="unit-toggle" aria-label="Temperature unit">
+
+                    <button
+                        type="button"
+                        class="unit-button active"
+                        data-unit="celsius"
+                    >
+                        °C
+                    </button>
+
+                    <span>|</span>
+
+                    <button
+                        type="button"
+                        class="unit-button"
+                        data-unit="fahrenheit"
+                    >
+                        °F
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Current weather -->
+
+            <section class="current-weather">
+
+                <div class="current-temperature">
+
+                    <div class="weather-icon" id="current-weather-icon">
+                        🌤️
+                    </div>
+
+                    <div class="temperature">
+                        <span id="current-temperature">35</span>
+                        <span class="temperature-unit">°C</span>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-details">
+
+                    <p>
+                        Precipitation:
+                        <span id="precipitation">13%</span>
+                    </p>
+
+                    <p>
+                        Humidity:
+                        <span id="humidity">53%</span>
+                    </p>
+
+                    <p>
+                        Wind:
+                        <span id="wind">9.8 km/h</span>
+                    </p>
+
+                </div>
+
+
+                <div class="weather-description">
+
+                    <h2>Weather</h2>
+
+                    <p id="selected-day">Monday</p>
+
+                    <p id="selected-date">2026-08-10</p>
+
+                    <p id="current-condition">
+                        Partly cloudy
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Forecast -->
+
+            <section class="forecast-section">
+
+                <div class="forecast" id="forecast">
+
+                    <article class="forecast-day active">
+
+                        <h3>Today</h3>
+
+                        <div class="forecast-icon">
+                            🌧️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+
+                    <article class="forecast-day">
+
+                        <h3>Mon</h3>
+
+                        <div class="forecast-icon">
+                            🌤️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+
+                    <article class="forecast-day">
+
+                        <h3>Tue</h3>
+
+                        <div class="forecast-icon">
+                            🌤️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+
+                    <article class="forecast-day">
+
+                        <h3>Wed</h3>
+
+                        <div class="forecast-icon">
+                            🌧️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+
+                    <article class="forecast-day">
+
+                        <h3>Thu</h3>
+
+                        <div class="forecast-icon">
+                            🌤️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+
+                    <article class="forecast-day">
+
+                        <h3>Fri</h3>
+
+                        <div class="forecast-icon">
+                            🌤️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+
+                    <article class="forecast-day">
+
+                        <h3>Sat</h3>
+
+                        <div class="forecast-icon">
+                            🌤️
+                        </div>
+
+                        <p class="forecast-temperature">
+                            <span class = "maxTemp">37°</span>
+                            <span class = "minTemp">27°</span>
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Daily Summary -->
+
+            <section class="daily-summary">
+
+                <h2>Day Summary</h2>
+
+                <p id="daily-summary">
+                    Partly cloudy throughout the day.
+                </p>
+
+            </section>
+
+        </section>
+
+             <!-- Loading -->
+
+            <div class="loading hidden" id="loading">
+
+                <div class="loading-spinner"></div>
+
+                <p>Loading weather...</p>
+
+            </div>
+
+        
+            <!-- Error -->
+
+            <div class="error-message hidden" id="error-message">
+            </div>
+    </main>
+
+
+</body>
+</html>
