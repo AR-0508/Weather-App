@@ -19,8 +19,6 @@ const weatherIcons = {
     "wind": "💨"
 };
 
-const API_KEY = "YOUR_API_KEY";
-
 const header = document.querySelector(".header");
 const weatherContainer = document.querySelector(".weather-container");
 
@@ -35,13 +33,14 @@ const errorMessage = document.querySelector("#error-message");
 let currentWeatherData;
 
 async function getWeatherData(location){
-    const responseObject = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${API_KEY}&contentType=json`);      //returns Response Object
+    const responseObject = await fetch(
+        `https://weather-api.abdurrehmanarif08.workers.dev/?location=${encodeURIComponent(location)}`
+    );
 
-    if(responseObject.ok === false)
-    throw new Error(`Unable to find weather data for ${location}.Please enter a valid location`);
+    if(!responseObject.ok)
+        throw new Error(`Unable to find weather data for ${location}.`);
 
-    const weatherData = await responseObject.json();        //returns a promise,then JSON string, then ultimately, a JS object
-    
+    const weatherData = await responseObject.json();
     return weatherData;
 }
 
